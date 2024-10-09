@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="waafipay_express_checkout_form">
+        <div class="row gap2 gap-md-0">
+<!--            <t t-if="provider_sudo.waafipay_storeid">-->
+                <div>
+<!--                    <t t-if="provider_sudo.mobilwallet">-->
+                        <input type="radio" class="waafipay_payment_method" name="waafi_payment_type" id="mobile"/>
+                        <label for="mobile" class="labal" id="labalmobile" style="font-size:14px;color: #4d4d4d;">
+                            MobileAccount
+                        </label>
+<!--                    </t>-->
+<!--                    <t t-if="provider_sudo.bank">-->
+                        <input type="radio" class="waafipay_payment_method" name="waafi_payment_type" id="bank"/>
+                        <label for="bank" class="labal" id="labalbank" style="font-size:14px;color: #4d4d4d;">
+                            BankAccount
+                        </label>
+<!--                    </t>-->
+<!--                    <t t-if="provider_sudo.creditcard">-->
+                        <input type="radio" class="waafipay_payment_method" name="waafi_payment_type" id="credit"/>
+                        <label for="credit" class="labal" id="labalcredit" style="font-size:14px;color: #4d4d4d;">
+                            CreditCard
+                        </label>
+<!--                    </t>-->
+                </div>
+<!--            </t>-->
+        </div>
+    </template>
+
+    <template id="inline_form">
+        <div t-attf-id="waafi-container-{{provider_id}}">
+            <t t-call="waafipay.waafipay_express_checkout_form"/>
+        </div>
+    </template>
+
+<!--    <template id="inherit_template_waafipay" inherit_id="payment.method_form" name="Waafi Checkout">-->
+<!--        &lt;!&ndash; Add class to the payment radio container &ndash;&gt;-->
+<!--&lt;!&ndash;        <xpath expr="//div[contains(@class, 'd-flex justify-content-between align-items-start gap-2 flex-wrap w-100')]" position="attributes">&ndash;&gt;-->
+<!--&lt;!&ndash;            <attribute name="class" add="waafipay_c" separator=" "/>&ndash;&gt;-->
+<!--&lt;!&ndash;        </xpath>&ndash;&gt;-->
+
+<!--        &lt;!&ndash; Insert additional radio buttons for WaafiPay &ndash;&gt;-->
+<!--        <xpath expr="//div[@for='o_payment_radio']" position="after">-->
+<!--            <t t-if="provider_sudo.waafipay_storeid">-->
+<!--                <div>-->
+<!--                    <t t-if="provider_sudo.mobilwallet">-->
+<!--                        <input type="radio" class="waafipay_payment_method" name="waafi_payment_type" id="mobile"/>-->
+<!--                        <label for="mobile" class="labal" id="labalmobile" style="font-size:14px;color: #4d4d4d;">-->
+<!--                            MobileAccount-->
+<!--                        </label>-->
+<!--                    </t>-->
+<!--                    <t t-if="provider_sudo.bank">-->
+<!--                        <input type="radio" class="waafipay_payment_method" name="waafi_payment_type" id="bank"/>-->
+<!--                        <label for="bank" class="labal" id="labalbank" style="font-size:14px;color: #4d4d4d;">-->
+<!--                            BankAccount-->
+<!--                        </label>-->
+<!--                    </t>-->
+<!--                    <t t-if="provider_sudo.creditcard">-->
+<!--                        <input type="radio" class="waafipay_payment_method" name="waafi_payment_type" id="credit"/>-->
+<!--                        <label for="credit" class="labal" id="labalcredit" style="font-size:14px;color: #4d4d4d;">-->
+<!--                            CreditCard-->
+<!--                        </label>-->
+<!--                    </t>-->
+<!--                </div>-->
+<!--            </t>-->
+
+<!--&lt;!&ndash;            <t t-call="waafipay.waafipay_payment_details">&ndash;&gt;-->
+<!--&lt;!&ndash;                <t t-set="provider_sudo" t-value="provider_sudo"/>&ndash;&gt;-->
+<!--&lt;!&ndash;            </t>&ndash;&gt;-->
+<!--        </xpath>-->
+
+<!--        &lt;!&ndash; Add class to the main payment method radio button &ndash;&gt;-->
+<!--        <xpath expr="//input[@t-attf-id='o_payment_method_{{pm_sudo.id}}']" position="attributes">-->
+<!--            <attribute name="class" add="waafipay_cc" separator=" "/>-->
+<!--        </xpath>-->
+<!--    </template>-->
+
+<!--    <template id="inherit_payment_form_waafipay" inherit_id="payment.form">-->
+<!--        <xpath expr="//li[@class='list-group-item d-flex flex-column gap-2 py-3 o_outline']" position="attributes">-->
+<!--            <attribute name="class" add="waafipay_c" separator=" "/>-->
+<!--        </xpath>-->
+<!--    </template>-->
+
+</odoo>

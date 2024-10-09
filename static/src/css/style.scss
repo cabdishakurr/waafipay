@@ -1,0 +1,16 @@
+.payment_method {
+    margin-left: 21px;
+    width: 0.9em;
+    height: 0.9em;
+    background-color: white;
+    border-radius: 55%;
+    vertical-align: middle;
+    border: 2px solid #8f8f9d;
+    -webkit-appearance: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.payment_method:checked {
+    background-color: #f07746;
+}

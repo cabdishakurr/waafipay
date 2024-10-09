@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="71" height="68" viewBox="0 0 71 68">
+  <g id="Group_28" data-name="Group 28" transform="translate(-554 -7715)">
+    <rect id="Rectangle_57" data-name="Rectangle 57" width="71" height="68" transform="translate(554 7715)" fill="#009e44"/>
+    <g id="_001-credit-card" data-name="001-credit-card" transform="translate(571.028 7736.968)">
+      <path id="Path_1" data-name="Path 1" d="M351,279h4.375v2.254H351Z" transform="translate(-325.412 -265.187)" fill="#fff"/>
+      <path id="Path_2" data-name="Path 2" d="M36.888,94.369V91.983A3.124,3.124,0,0,0,33.646,89H3.242A3.124,3.124,0,0,0,0,91.983v2.386Z" transform="translate(0 -89)" fill="#fff"/>
+      <path id="Path_3" data-name="Path 3" d="M0,200v11.8a3.124,3.124,0,0,0,3.242,2.983h30.4a3.124,3.124,0,0,0,3.242-2.983V200Zm16.138,9.478H6.916a1,1,0,1,1,0-1.988h9.222a1,1,0,1,1,0,1.988Zm0-4.242H6.916a1,1,0,1,1,0-1.988h9.222a1,1,0,1,1,0,1.988ZM32.2,208.484a1.04,1.04,0,0,1-1.081.994H24.208a1.04,1.04,0,0,1-1.081-.994v-4.242a1.04,1.04,0,0,1,1.081-.994h6.916a1.04,1.04,0,0,1,1.081.994Z" transform="translate(0 -190.718)" fill="#fff"/>
+    </g>
+  </g>
+</svg>
