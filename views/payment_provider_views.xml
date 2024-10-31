@@ -1,0 +1,44 @@
+/** @odoo-module **/
+
+import { _t } from "@web/core/l10n/translation";
+import { Component } from "@odoo/owl";
+import { PaymentForm } from "@payment/js/payment_form";
+
+export class WaafipayPaymentForm extends Component {
+    static template = "payment_waafipay.payment_form";
+    
+    setup() {
+        super.setup();
+        this.provider = this.props.provider;
+    }
+    
+    async processPayment() {
+        const form = document.createElement('form');
+        form.setAttribute('method', 'post');
+        form.setAttribute('action', this.provider.submit_url);
+        
+        // Add payment data
+        const paymentData = {
+            'merchant_id': this.provider.merchant_id,
+            'api_key': this.provider.api_key,
+            'amount': this.props.amount,
+            'currency': this.props.currency,
+            'reference': this.props.reference,
+        };
+        
+        // Create hidden inputs for the form
+        Object.entries(paymentData).forEach(([key, value]) => {
+            const input = document.createElement('input');
+            input.setAttribute('type', 'hidden');
+            input.setAttribute('name', key);
+            input.setAttribute('value', value);
+            form.appendChild(input);
+        });
+        
+        // Submit the form
+        document.body.appendChild(form);
+        form.submit();
+    }
+}
+
+PaymentForm.register("waafipay", WaafipayPaymentForm);

@@ -1,0 +1,27 @@
+.waafipay-form {
+    @apply p-4 rounded-lg border border-gray-200;
+    
+    .waafipay-header {
+        @apply flex items-center justify-between mb-4;
+        
+        img {
+            @apply h-8;
+        }
+    }
+    
+    .waafipay-amount {
+        @apply text-lg font-semibold mb-4;
+    }
+    
+    .waafipay-button {
+        @apply w-full py-2 px-4 bg-primary text-white rounded-md;
+        
+        &:hover {
+            @apply bg-primary/90;
+        }
+        
+        &:disabled {
+            @apply opacity-50 cursor-not-allowed;
+        }
+    }
+}

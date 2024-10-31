@@ -1,37 +1,30 @@
-# -*- coding: utf-8 -*-
 {
-    'name': "Waafipay",
-
-    'summary': """WaafiPay Payment Gateway allows businesses and eCommerce to accept credit cards, mobile money and other payment methods securely and with easy integration.""",
-
-    'description': """Waafipay Payment Provider""",
-
-    'author': "Safarifone Inc",
-    'website': "https://www.waafipay.net",
-
-
-    'category': 'Accounting/Payment Provider',
-    'version': '17.0.0.1',
-    'depends': ['payment', 'account'],
-
-    # always loaded
+    'name': 'WaafiPay Payment Provider',
+    'version': '17.0.1.0.0',
+    'category': 'Accounting/Payment Providers',
+    'sequence': 350,
+    'summary': 'Payment Provider: WaafiPay Implementation',
+    'description': """Integrate WaafiPay payment gateway with Odoo 17""",
+    'author': 'Cabdishakur',
+    'website': 'https://github.com/cabdishakurr/waafipay',
+    'depends': [
+        'payment',
+        'account',
+    ],
     'data': [
-        'views/views.xml',
-        'views/methode.xml',
-        'views/templates.xml',
-        'demo/demo.xml',
+        'security/ir.model.access.csv',
+        'views/payment_provider_views.xml',
+        'views/payment_waafipay_templates.xml',
+        'data/payment_provider_data.xml',
     ],
     'assets': {
         'web.assets_frontend': [
-            'waafipay/static/src/js/payment_form.js',
-            'waafipay/static/src/css/style.scss',
+            'payment_waafipay/static/src/js/payment_form.js',
+            'payment_waafipay/static/src/scss/payment_form.scss',
         ],
     },
-    # only loaded in demonstration mode
-    'demo': [],
-    'price': '0.00',
-    'currency': 'USD',
+    'application': True,
+    'license': 'LGPL-3',
     'installable': True,
-    'images': ['static/description/waafipay.png'],
-
+    'auto_install': False,
 }

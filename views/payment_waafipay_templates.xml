@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="payment_provider_form" inherit_id="payment.payment_provider_form">
+        <xpath expr="//div[@id='payment_provider_selection']" position="inside">
+            <div name="payment_provider_waafipay" t-att-class="{'d-none': provider_code != 'waafipay'}">
+                <div class="waafipay-form">
+                    <!-- WaafiPay form will be injected here by JavaScript -->
+                </div>
+            </div>
+        </xpath>
+    </template>
+</odoo>

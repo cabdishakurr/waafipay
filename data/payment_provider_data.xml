@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="payment_provider_waafipay" model="payment.provider">
+            <field name="name">WaafiPay</field>
+            <field name="code">waafipay</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="waafipay_environment">test</field>
+            <field name="state">test</field>
+        </record>
+    </data>
+</odoo>

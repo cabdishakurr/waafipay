@@ -1,2 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_waafipay_waafipay,waafipay,model_waafipay_waafipay,base.group_user,1,1,1,1
+access_payment_provider_waafipay_public,payment.provider.waafipay.public,payment.model_payment_provider,base.group_public,1,0,0,0
+access_payment_provider_waafipay_user,payment.provider.waafipay.user,payment.model_payment_provider,base.group_user,1,0,0,0
+access_payment_provider_waafipay_system,payment.provider.waafipay.system,payment.model_payment_provider,base.group_system,1,1,1,1
