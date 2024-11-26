@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="71" height="68" viewBox="0 0 71 68">
+  <g id="Group_26" data-name="Group 26" transform="translate(-920 -7436)">
+    <rect id="Rectangle_57" data-name="Rectangle 57" width="71" height="68" transform="translate(920 7436)" fill="#009e44"/>
+    <g id="_002-smartphone-with-shield" data-name="002-smartphone-with-shield" transform="translate(946 7454)">
+      <g id="Group_15" data-name="Group 15">
+        <path id="Path_4" data-name="Path 4" d="M34.07,0H19.357a2.234,2.234,0,0,0-2.229,2.228V30.771A2.235,2.235,0,0,0,19.357,33H34.07A2.235,2.235,0,0,0,36.3,30.771V2.228A2.234,2.234,0,0,0,34.07,0ZM24.36,1.606h4.707a.27.27,0,1,1,0,.539H24.36a.27.27,0,0,1,0-.539Zm2.354,30.282a1.116,1.116,0,1,1,1.114-1.117A1.116,1.116,0,0,1,26.714,31.888Zm8.035-3.011H18.678V3.534h16.07Z" transform="translate(-17.128)" fill="#fff"/>
+        <rect id="Rectangle_58" data-name="Rectangle 58" width="3" height="10" transform="translate(4 19)" fill="#fff"/>
+        <rect id="Rectangle_59" data-name="Rectangle 59" width="3" height="14" transform="translate(8 15)" fill="#fff"/>
+        <rect id="Rectangle_60" data-name="Rectangle 60" width="3" height="18" transform="translate(12 11)" fill="#fff"/>
+      </g>
+    </g>
+  </g>
+</svg>
