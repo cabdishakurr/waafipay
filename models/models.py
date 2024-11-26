@@ -111,7 +111,7 @@ class WaafiPay(models.Model):
             raise ValidationError('Currency not found.')
 
         import requests
-        url = "https://sandbox.waafipay.com/asm"
+        url = "https://sandbox.waafipay.net/asm"
 
         payload = "{\n                \"schemaVersion\"    : \"1.0\"," \
                   "\n                \"requestId\"         : \"R17100517154423\"," \
