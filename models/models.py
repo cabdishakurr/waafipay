@@ -121,8 +121,13 @@ class WaafiPay(models.Model):
             raise ValidationError('Currency not found.')
 
         import requests
-        url = "https://sandbox.safarifoneict.com/asm"
-
+        # Get the correct API URL based on environment
+        environment = 'prod' if self.state == 'enabled' else 'test'
+        api_url = self._get_waafipay_urls(environment)['waafipay_form_url']
+        
+        _logger.info('WaafiPay Environment: %s', environment)
+        _logger.info('WaafiPay API URL: %s', api_url)
+        
         payload = "{\n                \"schemaVersion\"    : \"1.0\"," \
                   "\n                \"requestId\"         : \"R17100517154423\"," \
                   "\n                \"timestamp\"         : \"%s\"," \
@@ -147,7 +152,7 @@ class WaafiPay(models.Model):
             'cache-control': "no-cache",
         }
 
-        response = requests.request("POST", url, data=payload, headers=headers)
+        response = requests.request("POST", api_url, data=payload, headers=headers)
         _logger.info('WaafiPay API Response: %s', response.text)
 
         try:
