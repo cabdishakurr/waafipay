@@ -99,6 +99,9 @@ class WaafiPay(models.Model):
         
         # Validate payment type
         valid_types = ['bank', 'credit', 'mobile']
+        if not values.get('wafi_payment_type'):
+            raise ValidationError(_('Payment type is required'))
+        
         if values.get('wafi_payment_type') not in valid_types:
             raise ValidationError(_('Invalid payment type. Must be one of: %s') % ', '.join(valid_types))
         
@@ -145,18 +148,34 @@ class WaafiPay(models.Model):
         }
 
         response = requests.request("POST", url, data=payload, headers=headers)
-        print(response.text)
+        _logger.info('WaafiPay API Response: %s', response.text)
 
-        hppUrl = response.json()['params']["hppUrl"]
-        hppRequestId = response.json()['params']["hppRequestId"]
-        referenceId = response.json()['params']["referenceId"]
-        waafipay_tx_values = dict(values)
-        waafipay_tx_values.update({
-            "hppUrl": hppUrl,
-            "hppRequestId": hppRequestId,
-            "referenceId": referenceId,
-        })
-        return waafipay_tx_values
+        try:
+            response_data = response.json()
+            if 'params' not in response_data:
+                raise ValidationError(_('Invalid response format from WaafiPay: missing params'))
+            
+            params = response_data['params']
+            required_fields = ['hppUrl', 'hppRequestId', 'referenceId']
+            missing_fields = [field for field in required_fields if field not in params]
+            
+            if missing_fields:
+                raise ValidationError(_('Missing required fields in WaafiPay response: %s') % ', '.join(missing_fields))
+            
+            waafipay_tx_values = dict(values)
+            waafipay_tx_values.update({
+                "hppUrl": params["hppUrl"],
+                "hppRequestId": params["hppRequestId"],
+                "referenceId": params["referenceId"],
+            })
+            return waafipay_tx_values
+        
+        except json.JSONDecodeError:
+            _logger.error('Failed to decode JSON response from WaafiPay: %s', response.text)
+            raise ValidationError(_('Invalid JSON response from WaafiPay'))
+        except Exception as e:
+            _logger.error('Error processing WaafiPay response: %s', str(e))
+            raise ValidationError(_('Error processing payment: %s') % str(e))
 
     def waafipay_get_form_action_url(self):
         self.ensure_one()
