@@ -96,12 +96,19 @@ class WaafiPay(models.Model):
 
     def waafipay_form_generate_values(self, values):
         base_url = self.get_base_url()
-        if values['wafi_payment_type'] == 'bank':
-            payment_type = 'MWALLET_BANKACCOUNT'
-        elif values['wafi_payment_type'] == 'credit':
-            payment_type = 'CREDIT_CARD'
-        elif values['wafi_payment_type'] == 'mobile':
-            payment_type = 'MWALLET_ACCOUNT'
+        
+        # Validate payment type
+        valid_types = ['bank', 'credit', 'mobile']
+        if values.get('wafi_payment_type') not in valid_types:
+            raise ValidationError(_('Invalid payment type. Must be one of: %s') % ', '.join(valid_types))
+        
+        # Map payment types
+        payment_type_mapping = {
+            'bank': 'MWALLET_BANKACCOUNT',
+            'credit': 'CREDIT_CARD', 
+            'mobile': 'MWALLET_ACCOUNT'
+        }
+        payment_type = payment_type_mapping[values['wafi_payment_type']]
 
         currency = False
         if values.get('currency_id'):
