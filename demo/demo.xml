@@ -1,25 +1,28 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-    <!-- Create the payment provider first -->
-    <record id="payment_provider_waafipay" model="payment.provider">
-        <field name="name">WaafiPay</field>
+    <record id="payment_method_waafipay_account" model="account.payment.method">
+        <field name="name">Waafipay</field>
         <field name="code">waafipay</field>
-        <field name="state">test</field>
-        <field name="company_id" ref="base.main_company"/>
-        <field name="image_128" type="base64" file="waafipay/static/description/waafipay.png"/>
+        <field name="payment_type">inbound</field>
     </record>
 
-    <!-- Create single payment method -->
     <record id="payment_method_waafipay" model="payment.method">
-        <field name="name">WaafiPay</field>
+        <field name="name">Waafipay</field>
         <field name="code">waafipay</field>
         <field name="active">True</field>
         <field name="image" type="base64" file="waafipay/static/description/waafipay.png"/>
-        <field name="provider_ids" eval="[(4, ref('payment_provider_waafipay'))]"/>
     </record>
 
-    <!-- Link the payment method to the provider -->
-    <record id="payment_provider_waafipay" model="payment.provider">
-        <field name="payment_method_ids" eval="[(4, ref('payment_method_waafipay'))]"/>
+    <record id="payment_acquirer_waafipay" model="payment.provider">
+        <field name="name">WaafiPay</field>
+        <field name="image_128" type="base64" file="waafipay/static/description/waafipay.png"/>
+        <field name="code">waafipay</field>
+         <field name="inline_form_view_id" ref="waafipay.inline_form"/>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="redirect_form_view_id" ref="waafipay_form"/>
+        <field name="payment_method_ids" eval="[(6, 0, [ref('waafipay.payment_method_waafipay')])]"/>
     </record>
+
+
+
 </odoo>
