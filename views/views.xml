@@ -14,6 +14,8 @@
                         <field name="mobilwallet"/>
                         <field name="bank"/>
                         <field name="creditcard"/>
+                        <field name="qr_enabled"/>
+                        <field name="qr_code" widget="image" attrs="{'invisible': [('qr_enabled', '=', False)]}"/>
                     </group>
                 </xpath>
             </field>
