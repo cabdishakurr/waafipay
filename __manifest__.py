@@ -37,7 +37,6 @@
     'external_dependencies': {
         'python': [
             'qrcode',
-            'pycryptodome',
             'requests'
         ],
     },
