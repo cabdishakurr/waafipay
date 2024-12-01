@@ -1,28 +1,21 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-    <!-- First create the payment provider -->
+    <!-- Create the payment provider first -->
     <record id="payment_provider_waafipay" model="payment.provider">
         <field name="name">WaafiPay</field>
         <field name="code">waafipay</field>
-        <field name="state">test</field>  <!-- Start in test mode -->
+        <field name="state">test</field>
         <field name="company_id" ref="base.main_company"/>
         <field name="image_128" type="base64" file="waafipay/static/description/waafipay.png"/>
     </record>
 
-    <!-- Then create the payment method -->
+    <!-- Create single payment method -->
     <record id="payment_method_waafipay" model="payment.method">
-        <field name="name">Waafipay</field>
+        <field name="name">WaafiPay</field>
         <field name="code">waafipay</field>
         <field name="active">True</field>
         <field name="image" type="base64" file="waafipay/static/description/waafipay.png"/>
         <field name="provider_ids" eval="[(4, ref('payment_provider_waafipay'))]"/>
-    </record>
-
-    <!-- Finally create the account payment method -->
-    <record id="payment_method_waafipay_account" model="account.payment.method">
-        <field name="name">Waafipay</field>
-        <field name="code">waafipay</field>
-        <field name="payment_type">inbound</field>
     </record>
 
     <!-- Link the payment method to the provider -->
