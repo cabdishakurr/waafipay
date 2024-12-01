@@ -80,6 +80,8 @@ class WaafiPay(models.Model):
     bank = fields.Boolean(string="Bank Account", default=True)
     creditcard = fields.Boolean(string="Credit Card", default=True)
     mobilwallet = fields.Boolean(string="Mobile Account", default=True)
+    qr_enabled = fields.Boolean(string="Enable QR Payments", default=False)
+    qr_code = fields.Binary(string="QR Code", attachment=True)
 
     @api.model
     def _get_waafipay_urls(self, environment):

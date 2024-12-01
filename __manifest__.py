@@ -34,4 +34,12 @@
     'installable': True,
     'images': ['static/description/waafipay.png'],
 
+    'external_dependencies': {
+        'python': [
+            'qrcode',
+            'requests',
+            'pycryptodome'
+        ],
+    },
+
 }
