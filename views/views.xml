@@ -15,7 +15,7 @@
                         <field name="bank"/>
                         <field name="creditcard"/>
                         <field name="qr_enabled"/>
-                        <field name="qr_code" widget="image" attrs="{'invisible': [('qr_enabled', '=', False)]}"/>
+                        <field name="qr_code" widget="image" invisible="not qr_enabled"/>
                     </group>
                 </xpath>
             </field>
